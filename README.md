@@ -4,8 +4,6 @@ This repo utilizes rest-assured, testNG and cucumber framework to test platform-
 
 ## **Steps to setup and execute the tests locally**
 
-***Language:*** Java
-***TestFrameworks:*** junit, cucumber
 1. Install [JAVA](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac)
 2. Install [Maven](https://maven.apache.org/install.html) 
 3. Install Intellij or other JAVA IDE
