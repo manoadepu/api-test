@@ -1,11 +1,9 @@
 
 # api-test
-This repo utilizes rest-assured, junit5 and cucumber framework to test platform-science apis.
+This repo utilizes rest-assured, testNG and cucumber framework to test platform-science apis.
 
 ## **Steps to setup and execute the tests locally**
 
-***Language:*** Java
-***TestFrameworks:*** junit, cucumber
 1. Install [JAVA](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac)
 2. Install [Maven](https://maven.apache.org/install.html) 
 3. Install Intellij or other JAVA IDE
@@ -20,7 +18,21 @@ This repo utilizes rest-assured, junit5 and cucumber framework to test platform-
 
 ***Note:*** All the classes and the methods have the comments that will help to understand the code 
 
+## **Environment variables**
+BASE_URI
+- pass base uri depending on the environment.
+- eg: BASE_URI=http://localhost:8080/v1
+
 ## ***Test Reporting***
 This repo utilizes **Extent Reports** and generates a beautiful dashboard
 
 **_Note:_** Anyone can view the [latest test report](https://manoadepu.github.io/api-test/Reports/index.html#) as it is integrated with github pages. 
+
+
+## ***Assumptions made for the coding challenge*** ##
+1. Robot works when the patches array is empty.
+2. Robot continues to travel after all the patches are cleaned
+3. When directions are not sent in the request the robot stays where it is
+4. Message is “0” in response[ does not look correct]
+5. Robot works and moves when patches to be cleaned are 0. I.e "patches" : [ [ ] ]
+6. In case of a negative scenario - the error response body will be sent back with appropriate status, description and message
