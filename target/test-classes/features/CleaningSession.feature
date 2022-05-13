@@ -23,6 +23,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NNESEESWNWW"
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "1,3" and patches cleaned are "2"
+
   @Regression
   Scenario: Validating cleaning sessions happy path response
     Given RoomSize is "5,5"
@@ -31,6 +32,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NNESEESWNWW"
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "1,3" and patches cleaned are "2"
+
   @Regression
   Scenario: Validating cleaning sessions happy path response
     Given RoomSize is "4,5"
@@ -51,6 +53,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "EEE"
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "4,2" and patches cleaned are "2"
+
   @Regression
   Scenario: Validating when robot hits the WEST wall and remains inplace
     Given RoomSize is "5,5"
@@ -59,6 +62,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "WWWWW"
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "0,2" and patches cleaned are "0"
+
   @Regression
   Scenario: Validating when robot hits the SOUTH wall and remains inplace
     Given RoomSize is "5,5"
@@ -67,6 +71,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "SSSSS"
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "2,0" and patches cleaned are "0"
+
   @Regression
   Scenario: Validating when robot hits the NORTH wall and remains inplace
     Given RoomSize is "5,5"
@@ -75,6 +80,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NNNNN"
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "2,4" and patches cleaned are "0"
+
   @Regression
   Scenario: Validating when robot hits the wall and remains inplace with no patches to clean
     Given RoomSize is "5,5"
@@ -94,6 +100,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "SSSSSNEWW"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "Roomsize incorrect"
+
   @Regression
   Scenario: Validating the error response when coords are empty
     Given RoomSize is "5,5"
@@ -102,6 +109,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "SSSSSNEWW"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "Coords incorrect"
+
   @Regression
   Scenario: Validating the error response when patches are empty
     Given RoomSize is "5,5"
@@ -110,6 +118,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "SSSSSNEWW"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "Patches incorrect"
+
   @Regression
   Scenario: Validating the error response when instructions are empty
     Given RoomSize is "5,5"
@@ -118,6 +127,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are ""
     When Make a cleaning-sessions POST call
     Then validate that the reponse body has coords "2,0" and patches cleaned are "0"
+
   @Regression
   Scenario: Validating the error response when instructions are sent in lowercase
     Given RoomSize is "5,5"
@@ -126,6 +136,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "nnnwwsss"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "TO_BE_DETERMINED_FORM_THE_SPEC"
+
   @Regression
   Scenario: Validating the error response when instructions are sent in uppercase+lowercase
     Given RoomSize is "5,5"
@@ -134,6 +145,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NNnWwSs"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "TO_BE_DETERMINED_FORM_THE_SPEC"
+
   @Regression
   Scenario: Validating that the api responds with appropriate error message when start location is greater than room size
     Given RoomSize is "5,5"
@@ -142,6 +154,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "SSSSSNEWW"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "0"
+
   @Regression
   Scenario: Validating that the api responds with appropriate error message when patch location is greater than room size
     Given RoomSize is "5,5"
@@ -150,6 +163,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NWSWSEEEN"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "0"
+
   @Regression
   Scenario: Validating that the api responds with appropriate error message when one patch location is greater than room size
     Given RoomSize is "4,5"
@@ -158,6 +172,7 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NWSWSEEEN"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "0"
+
   @Regression
   Scenario: Validating that the api responds with appropriate error message when room size is 0
     Given RoomSize is "0,0"
@@ -166,6 +181,8 @@ Feature: Cleaning sessions API test scenario
     And Moving instructions are "NWSWSEEEN"
     When Make a cleaning-sessions POST call
     Then Validate that the reponse body returns status "400" and message "0"
+
+  #Demonstration purpose test
   @Regression
   Scenario: Validating that the api responds with appropriate error message when room size is not sent
     Given RoomSize is "null"
