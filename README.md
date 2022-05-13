@@ -18,6 +18,11 @@ This repo utilizes rest-assured, testNG and cucumber framework to test platform-
 
 ***Note:*** All the classes and the methods have the comments that will help to understand the code 
 
+## **Environment variables**
+BASE_URI
+- pass base uri depending on the environment.
+- eg: BASE_URI=http://localhost:8080/v1
+
 ## ***Test Reporting***
 This repo utilizes **Extent Reports** and generates a beautiful dashboard
 
