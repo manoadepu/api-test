@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import io.restassured.response.Response;
 import model.error.ErrorResponse;
-import org.junit.Assert;
+import org.testng.Assert;
 
 /**
  * This class contains globas assertion utility methods that can be used accross all the tests
@@ -19,8 +19,8 @@ public class GlobalAssertionsUtil {
                 ObjectMapper mapper = new ObjectMapper();
                 ErrorResponse errorResponse = mapper.readValue(response.getBody().asString(), ErrorResponse.class);
 
-                Assert.assertTrue("Status is incorrect in error response.", Integer.parseInt(expectedStatus) == errorResponse.getStatus());
-                Assert.assertTrue("Expected message is incorrect", expectedMessage.equals(errorResponse.getMessage()));
+                Assert.assertTrue(Integer.parseInt(expectedStatus) == errorResponse.getStatus(), "Status is incorrect in error response.");
+                Assert.assertTrue( expectedMessage.equals(errorResponse.getMessage()),"Expected message is incorrect");
             } catch (MismatchedInputException exception) {
                 Assert.fail("Error Response body not received");
             }

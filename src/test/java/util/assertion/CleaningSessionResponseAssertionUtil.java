@@ -3,7 +3,7 @@ package util.assertion;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import model.response.CleaningSessionsResponse;
-import org.junit.Assert;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -24,11 +24,9 @@ public class CleaningSessionResponseAssertionUtil {
         ObjectMapper mapper = new ObjectMapper();
         CleaningSessionsResponse cleaningSessionsResponse = mapper.readValue(response.getBody().asString(), CleaningSessionsResponse.class);
 
-        Assert.assertTrue("Coords incorrect in response![Expected:" + expectedCoords.toString() + " Actual:" + cleaningSessionsResponse.getCoords().toString() + "]"
-                , cleaningSessionsResponse.getCoords().equals(expectedCoords));
+        Assert.assertTrue( cleaningSessionsResponse.getCoords().equals(expectedCoords), "Coords incorrect in response![Expected:" + expectedCoords.toString() + " Actual:" + cleaningSessionsResponse.getCoords().toString() + "]");
 
-        Assert.assertTrue("Number of patches cleaned are incorrect![Expected:" + expectedPatches + " Actual:" + cleaningSessionsResponse.getPatches() + "]"
-                , cleaningSessionsResponse.getPatches() == expectedPatches);
+        Assert.assertTrue( cleaningSessionsResponse.getPatches() == expectedPatches, "Number of patches cleaned are incorrect![Expected:" + expectedPatches + " Actual:" + cleaningSessionsResponse.getPatches() + "]");
 
     }
 }

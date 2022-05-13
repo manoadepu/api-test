@@ -1,8 +1,7 @@
 package runners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 /*
     This is a test runner class that helps us start execution of the tests
@@ -12,12 +11,13 @@ import org.junit.runner.RunWith;
         glue: path to step definitions
         tags: execute tests that belong to specific tag
  */
-@RunWith(Cucumber.class)
+//@RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"html:target/cucumber-html-report"},
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/resources/features",
         glue = {"api/tests"},
-        tags = {"@Regression"}
+        monochrome = true,
+        publish = true
 )
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 }
