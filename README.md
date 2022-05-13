@@ -27,3 +27,12 @@ BASE_URI
 This repo utilizes **Extent Reports** and generates a beautiful dashboard
 
 **_Note:_** Anyone can view the [latest test report](https://manoadepu.github.io/api-test/Reports/index.html#) as it is integrated with github pages. 
+
+
+## ***Assumptions made for the coding challenge*** ##
+1. Robot works when the patches array is empty.
+2. Robot continues to travel after all the patches are cleaned
+3. When directions are not sent in the request the robot stays where it is
+4. Message is “0” in response[ does not look correct]
+5. Robot works and moves when patches to be cleaned are 0. I.e "patches" : [ [ ] ]
+6. In case of a negative scenario - the error response body will be sent back with appropriate status, description and message
