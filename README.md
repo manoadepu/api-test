@@ -1,6 +1,6 @@
 
 # api-test
-This repo utilizes rest-assured, junit5 and cucumber framework to test platform-science apis.
+This repo utilizes rest-assured, testNG and cucumber framework to test platform-science apis.
 
 ## **Steps to setup and execute the tests locally**
 
