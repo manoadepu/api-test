@@ -1,7 +1,7 @@
 package util.enums;
 
 /**
- *  Endpoints that can be used accross all the tests
+ * Endpoints that can be used accross all the tests
  */
 public enum Endpoint {
     CLEANING_SESSIONS("/cleaning-sessions"),

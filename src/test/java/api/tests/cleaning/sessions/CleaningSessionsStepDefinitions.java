@@ -19,35 +19,30 @@ import java.util.List;
  */
 public class CleaningSessionsStepDefinitions {
 
-
+    //cleaningSessions is used in given step definitions and the values are set according to the variables sent from feature file
     static CleaningSessions cleaningSessions = new CleaningSessions();
     static Response response = null;
 
-    /**
-     * @param roomSize
-     * Step definition that takes roomSize coords as a string and sets it to request CleaningSession request body
-     */
     @Given("RoomSize is {string}")
     public void roomsize_is(String roomSize) {
         cleaningSessions.setRoomSize(GlobalUtility.getCoordinatesFromCommaSeperatedString(roomSize));
     }
 
-    /**
-     * @param coords
-     * Step definition that takes coords as String and sets it to request CleaningSession request body
-     */
     @Given("Coords are {string}")
     public void coords_are(String coords) {
-
         cleaningSessions.setCoords(GlobalUtility.getCoordinatesFromCommaSeperatedString(coords));
+
     }
 
-    /**
-     * @param patches
-     * Step definition that takes patches as String and sets it to request CleaningSession request body
-     */
     @Given("Patches are {string}")
     public void patches_to_be_cleaned_are(String patches) {
+
+        /*
+            This method takes patches from feature file
+            format: "x-cord,y-cord&x-cord,y-cord&..x-cord,y-cord"
+            converted to: [[x-cord,y-cord],[x-cord,y-cord]..[x-cord,y-cord]] that is set in the request body
+         */
+
         String[] allPatches = patches.split("&");
         List<List<Integer>> patchesAfterTransformation = new ArrayList<>();
 
@@ -56,36 +51,22 @@ public class CleaningSessionsStepDefinitions {
         }
 
         cleaningSessions.setPatches(patchesAfterTransformation);
+
     }
 
-    /**
-     * @param instructions
-     * Step definition that takes instructions
-     */
     @Given("Moving instructions are {string}")
     public void moving_instruction_are(String instructions) {
         cleaningSessions.setInstructions(instructions);
     }
 
-    /**
-     * @throws Exception
-     * When Step definition that makes a post call
-     */
     @When("Make a cleaning-sessions POST call")
     public void make_cleaning_sessions_post_call() throws Exception {
         response = RestCallUtil.restAssuredPostCall(cleaningSessions,
                 Endpoint.CLEANING_SESSIONS.getEndpoint());
     }
 
-    /**
-     *
-     * @param coords
-     * @param expectedPatches
-     * @throws Exception
-     * Then Step definition that takes expected coords and expected patches and asserts using Assertion utilities
-     */
     @Then("validate that the reponse body has coords {string} and patches cleaned are {string}")
-    public void validate_that_the_reponse_body_has_coords_and_patches_cleaned_are(String coords, String expectedPatches) throws Exception {
+    public void validate_reponse_body(String coords, String expectedPatches) throws Exception {
 
         CleaningSessionResponseAssertionUtil.assertCleaningSessionResponseBody(response,
                 GlobalUtility.getCoordinatesFromCommaSeperatedString(coords),
@@ -93,16 +74,8 @@ public class CleaningSessionsStepDefinitions {
 
     }
 
-    /**
-     *
-     * @param status
-     * @param message
-     * @throws Exception
-     * Then step definition that validates Error Response
-     */
     @Then("Validate that the reponse body returns status {string} and message {string}")
     public void validate_the_error_response(String status, String message) throws Exception {
         GlobalAssertionsUtil.validateErrorResponse(response, status, message);
     }
-
 }

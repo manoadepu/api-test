@@ -20,7 +20,7 @@ public class GlobalAssertionsUtil {
                 ErrorResponse errorResponse = mapper.readValue(response.getBody().asString(), ErrorResponse.class);
 
                 Assert.assertTrue(Integer.parseInt(expectedStatus) == errorResponse.getStatus(), "Status is incorrect in error response.");
-                Assert.assertTrue( expectedMessage.equals(errorResponse.getMessage()),"Expected message is incorrect");
+                Assert.assertTrue(expectedMessage.equals(errorResponse.getMessage()), "Expected message is incorrect");
             } catch (MismatchedInputException exception) {
                 Assert.fail("Error Response body not received");
             }

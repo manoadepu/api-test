@@ -9,10 +9,9 @@ import java.util.stream.Stream;
  */
 public class GlobalUtility {
     /**
-     *
      * @param coordinates
      * @return List<Integer>
-     *
+     * <p>
      * A method that takes comma seperated coordinates as a String and converts it to List<Integer> and returns
      */
     public static List<Integer> getCoordinatesFromCommaSeperatedString(String coordinates) {

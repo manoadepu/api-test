@@ -17,7 +17,8 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         glue = {"api/tests"},
         monochrome = true,
-        publish = true
+        publish = true,
+        tags = "@Regression"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

@@ -2,7 +2,7 @@
 # api-test
 This repo utilizes rest-assured, junit5 and cucumber framework to test platform-science apis.
 
-## **Steps to setup and execute the tests locally:***
+## **Steps to setup and execute the tests locally**
 
 ***Language:*** Java
 ***TestFrameworks:*** junit, cucumber
@@ -14,8 +14,13 @@ This repo utilizes rest-assured, junit5 and cucumber framework to test platform-
 6. Execute ***mvn clean install***
 7. Execute ***mvn test*** to trigger the tests from command line **or** right click on ***runners.TestRunner*** and and click on ***"Run 'Test Runner'"***
 
+## **Directory Structure**
+
+![alt text](DirectoryStructureExplaination.png)
+
 ***Note:*** All the classes and the methods have the comments that will help to understand the code 
 
 ## ***Test Reporting***
+This repo utilizes **Extent Reports** and generates a beautiful dashboard
 
-The HTML test report will be generated after all the tests execute and be placed inside ***target/cucumber-html-report/index.html***
+**_Note:_** Anyone can view the [latest test report](https://manoadepu.github.io/api-test/Reports/index.html#) as it is integrated with github pages. 

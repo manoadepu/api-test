@@ -20,9 +20,7 @@ public class RestCallUtil {
      * @param patches
      * @param instructions
      * @return
-     * @throws JsonProcessingException
-     *
-     * This method makes a POST call using rest-assured
+     * @throws JsonProcessingException This method makes a POST call using rest-assured
      */
     public static String buildCleaningSessionsRequest(List<Integer> roomSize,
                                                       List<Integer> coords,
